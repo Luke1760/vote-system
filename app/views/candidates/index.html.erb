@@ -1,3 +1,24 @@
-<h1>Welcome to Vote&Vote</h1>
+<%= flash[:notice]%>
 
-<a href="/candidates/new">add candidate</a>
+<h1>Welcome to Vote&Vote</h1>
+<%= link_to 'Add Candidate', new_candidate_path %>
+
+  <table>
+    <tr>
+      <td>Name</td>
+      <td>Age</td>
+      <td>Party</td>
+      <td>Politics</td>
+      <td>Action</td>
+    </tr>
+
+    <%@candidates.each do |candidate|%>
+    <tr>
+      <td><%= link_to candidate.name, candidate_path(candidate.id)%></td>
+      <td><%= candidate.age%></td>
+      <td><%= candidate.party%></td>
+      <td><%= candidate.politics%></td>
+      <td>Action</td>
+    </tr>
+    <% end %>
+  </table>
