@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_034618) do
   create_table "candidates", force: :cascade do |t|
     t.string "name"
     t.string "party"
-    t.string "age"
+    t.integer "age"
     t.text "politics"
     t.string "votes", default: "0"
     t.datetime "created_at", precision: 6, null: false
