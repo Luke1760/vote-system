@@ -13,14 +13,17 @@
     </tr>
 
     <%@candidates.each do |candidate|%>
-    <tr>
-      <td><%= link_to candidate.name, candidate_path(candidate.id)%></td>
-      <td><%= candidate.age%></td>
-      <td><%= candidate.party%></td>
-      <td><%= candidate.politics%></td>
-      <td>
-        <%= link_to 'update', edit_candidate_path(candidate.id) %>
-      </td>
-    </tr>
+      <tr>
+        <td><%= link_to candidate.name, candidate_path(candidate.id)%></td>
+        <td><%= candidate.age%></td>
+        <td><%= candidate.party%></td>
+        <td><%= candidate.politics%></td>
+        <td>
+          <%= link_to 'update', edit_candidate_path(candidate.id) %>
+        </td>
+        <td>
+        <%= link_to 'delete', candidate_path(candidate.id), method: 'delete', data: {confirm: 'Are you sure?!'} %>
+        </td>
+      </tr>
     <% end %>
   </table>

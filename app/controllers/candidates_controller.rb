@@ -28,13 +28,20 @@ class CandidatesController < ApplicationController
 
   def update
     @candidate = Candidate.find_by(id: params[:id])
-    
+
     if @candidate.update(candidate_params)
       flash[:notice] = "Candidate Updated !"
       redirect_to '/candidates'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @candidate = Candidate.find_by(id: params[:id])
+    @candidate.destroy
+      flash[:notice] = "Candidate deleted !"
+      redirect_to '/candidates'
   end
 
   private
