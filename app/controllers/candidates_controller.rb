@@ -13,6 +13,7 @@ class CandidatesController < ApplicationController
       flash[:notice] = "Candidate Created !"
       redirect_to '/candidates'
     else
+      render :new
     end
   end
 
